@@ -1,0 +1,15 @@
+[submodule "vendor/assets/javascripts/ember-model"]
+	path = vendor/assets/javascripts/ember-model
+	url = https://github.com/ebryn/ember-model
+[submodule "vendor/gems/engine"]
+	path = vendor/gems/engine
+	url = git://github.com/rpmessner/engine.git
+[submodule "test/fixtures/site"]
+	path = test/fixtures/site
+	url = git://github.com/locomotivecms/site.git
+[submodule "vendor/gems/wagon"]
+	path = vendor/gems/wagon
+	url = git://github.com/locomotivecms/wagon.git
+[submodule "vendor/gems/mounter"]
+	path = vendor/gems/mounter
+	url = git://github.com/rpmessner/mounter.git
