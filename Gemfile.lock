@@ -42,7 +42,7 @@ PATH
       rails-backbone (~> 0.7.2)
       rake (~> 10.0.0)
       responders (~> 0.9.2)
-      sanitize (= 2.0.3)
+      sanitize (~> 2.0.3)
       stringex (~> 1.5.1)
 
 PATH
