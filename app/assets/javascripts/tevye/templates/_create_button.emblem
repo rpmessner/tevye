@@ -1,0 +1,4 @@
+button click="toggleCreating target=view" class=view.buttonClass
+  i class=view.iconClass
+if view.isCreating
+  Tevye.NewObjectTextField valueBinding=view.newTitle

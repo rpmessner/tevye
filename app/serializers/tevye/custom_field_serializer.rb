@@ -27,9 +27,11 @@ class Tevye::CustomFieldSerializer < ActiveModel::Serializer
   end
 
   def select_options
-   @object.select_options.inject({}) do |coll, val|
-      coll[val.id] = val.name_translations
-      coll
+   @object.select_options.map do |val|
+      {
+        id: val.id,
+        name: val.name_translations
+      }
     end
   end
 

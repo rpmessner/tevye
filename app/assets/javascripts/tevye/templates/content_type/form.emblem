@@ -1,0 +1,8 @@
+legend = content.title
+if view.isCreating
+  Tevye.CustomFieldTypeSelect
+partial#new-custom-field create_button
+Tevye.CustomFieldsEditView contentBinding=content.fields
+button.save click="update"
+  i.glyphicon.glyphicon-ok-sign
+  | Save

@@ -1,0 +1,10 @@
+ul id=view.id
+  each option in view.translatedOptions
+    li
+      = option.value
+      button.btn.btn-danger.btn-small.remove-option click="removeOption option.id target=view"
+        i.glyphicon.foundicon-remove-sign
+if view.isAdding
+  Tevye.NewOptionTextField name="new-option"
+button click="toggleAdding target=view" class=view.addButtonClass
+  i class=view.addButtonIconClass

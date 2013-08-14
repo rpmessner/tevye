@@ -1,0 +1,9 @@
+table.content-entries
+  tr
+    th Title
+    th Link
+  each entry in content
+    tr
+      td = entry.title
+      td = linkTo 'contentEntry' entry.site entry
+        = entry.slug

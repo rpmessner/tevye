@@ -19,7 +19,9 @@ describe Tevye::SiteSerializer do
         page_ids: [page.id, not_found.id],
         theme_asset_ids: [asset.id],
         content_type_ids: [content_type.id],
-        site_id: site.id
+        site_id: site.id,
+        locales: %w(en),
+        default_locale: 'en'
       }
     }
     serializer = Tevye::SiteSerializer.new(site, {})

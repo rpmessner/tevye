@@ -1,0 +1,2 @@
+label = view.customField.label
+Em.TextField type="hidden" valueBinding=view.value

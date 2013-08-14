@@ -1,0 +1,10 @@
+/ #image-clearing
+/   if showImages
+/     = content
+/     Tevye.ImageClearing contentBinding=content.images
+.sidebar
+  Tevye.PagesListView controllerBinding=controllers.pages
+  Tevye.ContentTypesListView controllerBinding=controllers.contentTypes
+  Tevye.ContentEntriesListView controllerBinding=controllers.contentEntries
+.main-content
+  = outlet

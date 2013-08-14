@@ -1,9 +1,9 @@
 class Tevye::ResourcesControllerError < ActionController::ActionControllerError; end
 class Tevye::ResourcesController < Tevye::BaseController
   extend Tevye::Resource
-  
+
   respond_to :json
-  
+
   def index
     find_resources
     respond_with_json
@@ -32,12 +32,12 @@ class Tevye::ResourcesController < Tevye::BaseController
   end
 
   protected
-  
+
   def respond_with_json(response=nil)
-    case  
+    case
     when !response.nil?
       render json: MultiJson.dump(response)
-    when !resource_variable.nil? 
+    when !resource_variable.nil?
       render_resource
     when !resources_variable.nil?
       render_resources
@@ -45,7 +45,7 @@ class Tevye::ResourcesController < Tevye::BaseController
       raise Tevye::ResourcesControllerError.new("No valid response type")
     end
   end
-  
+
   def render_resource
     if resource_variable.valid?
       serializer = serializer_class.new(resource_variable, {})
@@ -53,13 +53,15 @@ class Tevye::ResourcesController < Tevye::BaseController
       render json: MultiJson.dump(obj)
     else
       render json: { errors: errors_json(resource_variable) }, status: 422
-    end 
+    end
   end
-  
+
   def render_resources
-    render json: MultiJson.dump(resources_variable.map do |var|
-      serializer_class.new(var, {}).as_json
-    end)
+    render json: {
+      resources_name => resources_variable.map do |var|
+        serializer_class.new(var, root: false).as_json
+      end
+    }
   end
 
   def errors_json(model)
@@ -67,39 +69,37 @@ class Tevye::ResourcesController < Tevye::BaseController
       errors.merge(field => [].concat([error]).flatten)
     end
   end
-  
-  def serializer_class	
+
+  def serializer_class
     "Tevye::#{resource_name.camelize}Serializer".constantize
   end
-  
+
   def find_params
     params[:id]
   end
-  
-  def update_params
+
+  def resource_params
     params[resource_name.to_sym]
   end
-  
-  def create_params
-    params[resource_name.to_sym]
-  end	
-  
+  alias_method :update_params, :resource_params
+  alias_method :create_params, :resource_params
+
   def update_resource
     resource_variable.update_attributes(update_params)
   end
-  
+
   def create_resource
     self.resource_variable = creator.create(create_params)
   end
-  
+
   def find_resource
     self.resource_variable = finder.find(find_params)
-  end 
+  end
 
   def find_resources
     self.resources_variable = finder.all
-  end 
-  
+  end
+
   def destroy_resource
     resource_variable.destroy
   end
@@ -109,13 +109,13 @@ class Tevye::ResourcesController < Tevye::BaseController
       params[param.to_sym]
     end
   end
-  
+
   def self.required_params(*params)
     @required_params = params
   end
-  
+
   def finder
-    @finder ||= 
+    @finder ||=
       "Tevye::Finder::#{resources_name.camelize}".constantize.send(:new, *required_params)
   end
 

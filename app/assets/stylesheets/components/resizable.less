@@ -1,0 +1,66 @@
+.resizable {
+  overflow: hidden;
+  position: relative;
+  .pane-container {
+    .box-sizing(border-box);
+  }
+  .handle {
+    .user-select(none);
+    -user-drag: element;
+    position: absolute;
+    background-color: #222;
+    z-index: 10;
+  }
+}
+.percent-widths() {
+  .full { width: 100%; }
+  .half { width: 50%; }
+  .third { width: 33%; }
+  .fourth { width: 25%; }
+  .fifth { width: 20%; }
+  .sixth { width: 16%; }
+  .seventh { width: 14%; }
+}
+.percent-heights() {
+  .full { height: 100%; }
+  .half { height: 50%; }
+  .third { height: 33%; }
+  .fourth { height: 25%; }
+  .fifth { height: 20%; }
+  .sixth { height: 16%; }
+  .seventh { height: 14%; }
+}
+.resizable.horizontal {
+  width: 100%;
+  .handle {
+    cursor: col-resize;
+    height: 100%;
+    width: 12px;
+    top: 0;
+  }
+  .pane-container {
+    width: 98%;
+    .percent-heights;
+  }
+}
+.resizable.top .handle { top: 0; }
+.resizable.bottom .handle { bottom: 0; }
+.resizable.left .handle { left: 0; }
+.resizable.right .handle { right: 0; }
+.resizable.left { float: right; }
+.resizable.right { float: none; }
+.resizable.vertical {
+  height: 100%;
+  .pane-container {
+    .percent-widths;
+    .pane {
+      .inline-block;
+    }
+  }
+  .handle {
+    cursor: row-resize;
+    left: 0;
+    width: 100%;
+    height: 12px;
+  }
+}

@@ -1,0 +1,2 @@
+label = view.customField.label
+Em.TextArea valueBinding=view.value

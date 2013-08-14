@@ -1,0 +1,2 @@
+iframe.preview-iframe src=view.iframeSrc scrolling="no" allowtransparency="true" width="100%" frameborder=0
+.drag-cover

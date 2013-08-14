@@ -1,0 +1,8 @@
+legend
+  = content.contentType.name
+  |: &nbsp;
+  = content.label
+Tevye.ContentEntryAttributesView contentEntryBinding=content contentTypeBinding=content.contentType
+button.save click="update"
+  i.glyphicon.glyphicon-ok-sign
+  | Save

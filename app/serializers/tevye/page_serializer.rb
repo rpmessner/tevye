@@ -1,7 +1,7 @@
 class Tevye::PageSerializer < ActiveModel::Serializer
-  attributes :id, :parent_id, :site_id, :depth,
-             :title, :child_ids, :raw_template, :slug,
-             :content_type_id
+  attributes :id, :parent_id, :site_id, :depth, :child_ids,
+             :content_type_id, :raw_template_translations,
+             :title_translations, :slug_translations, :fullpath
 
   def include_content_type_id?
     !content_type_id.nil?
@@ -11,15 +11,4 @@ class Tevye::PageSerializer < ActiveModel::Serializer
     @object.content_type.nil? ? nil : @object.content_type.id
   end
 
-  def raw_template
-    @object.raw_template_translations
-  end
-
-  def title
-    @object.title_translations
-  end
-
-  def slug
-    @object.slug_translations
-  end
 end

@@ -1,0 +1,3 @@
+label = view.customField.label
+= view.value
+Tevye.SelectValueSelect contentBinding=view.selectOptions optionLabelPath=content.label optionValuePath=content.value

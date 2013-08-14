@@ -10,12 +10,12 @@ describe Tevye::AccountSerializer do
     hash       = serializer.as_json
     hash.should == {
       account: {
-        id: account.id,
-        email: account.email,
-        sign_in_count: account.sign_in_count,
+        id:                 account.id,
+        email:              account.email,
+        sign_in_count:      account.sign_in_count,
         current_sign_in_at: account.current_sign_in_at,
-        last_sign_in_at: account.last_sign_in_at,
-        name: account.name
+        last_sign_in_at:    account.last_sign_in_at,
+        name:               account.name
       }
     }
   end

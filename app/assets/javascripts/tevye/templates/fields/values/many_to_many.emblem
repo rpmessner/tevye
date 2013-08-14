@@ -1,0 +1,11 @@
+label = view.customField.label
+ul.nav
+  each entry in view.associatedEntries
+    li = entry.label
+    button.btn.btn-danger.delete click="deleteRelation entry target=view"
+      i.glyphicon.glyphicon-remove
+each val in view.value
+  = val
+Em.Select contentBinding=view.availableEntries optionValuePath=content.value optionLabelPath=content.label
+button.btn.btn-primary.add-many-to-many click="addRelation target=view"
+  i.glyphicon.glyphicon-plus

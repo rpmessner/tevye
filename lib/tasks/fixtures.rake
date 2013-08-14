@@ -16,7 +16,8 @@ namespace :fixtures do
 
   OUTPUT_PATH = 'test/javascripts/helpers'
   INPUT_PATH  = 'test/fixtures'
-  ENDPOINT    = '0.0.0.0:3000/locomotive/api'
+  PORT        = 3000
+  ENDPOINT    = "0.0.0.0:#{PORT}/locomotive/api"
 
   ACCOUNT_ATTRIBUTES = {
     name:     'Admin',
@@ -49,9 +50,10 @@ namespace :fixtures do
   end
 
   def start_server
-    server     = Rails::Server.new
+    server      = Rails::Server.new
     server.options[:server] = nil
-    server_pid = fork { server.start }
+    server.options[:Port]   = PORT
+    server_pid  = fork { server.start }
     sleep 3
     yield if block_given?
     Process.kill(:INT, server_pid)

@@ -1,0 +1,3 @@
+label = view.customField.label
+= view.associatedEntry.label
+Tevye.BelongsToSelect optionValuePath=content.value optionLabelPath=content.label contentBinding=view.selectOptions

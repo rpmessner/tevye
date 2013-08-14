@@ -1,0 +1,7 @@
+partial#new-content-type create_button
+collection Tevye.ContentTypeCollectionView contentBinding=content
+  .content
+    = linkTo "contentType" view.content.site view.content class="content-type"
+      i.glyphicon.glyphicon-edit
+    span.select click="select target=view"
+      = view.content.name

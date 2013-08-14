@@ -1,0 +1,17 @@
+.header
+  if view.showAssetSelect
+    .select click="toggleLabelSelect target=view"
+      if view.showAssetSelectLabel
+        label = view.selectedAsset.sourceFilename
+      else
+        Tevye.AssetSelect selectionBinding="view.selectedAsset" contentBinding=view.assets
+  if view.showCreateDelete
+    .buttons
+      button.destroy.btn-mini.btn.btn-danger click="destroySelected target=view"
+        i.glyphicon.glyphicon-remove-sign
+      = partial create_button
+.mirror
+if view.showErrors
+  .errors
+    each error in view.errors
+      = error

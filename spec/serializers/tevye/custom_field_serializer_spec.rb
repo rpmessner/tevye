@@ -76,7 +76,12 @@ describe Tevye::CustomFieldSerializer do
         label: 'Select Field',
         required: false,
         position: 7,
-        select_options: field.select_options.inject({}){|coll, val| coll[val.id] = val.name_translations; coll}
+        select_options: field.select_options.map { |val|
+          {
+            id: val.id,
+            name: val.name_translations
+          }
+        }
       }
     }
   end

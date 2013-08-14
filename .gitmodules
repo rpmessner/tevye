@@ -13,6 +13,3 @@
 [submodule "vendor/gems/mounter"]
 	path = vendor/gems/mounter
 	url = git://github.com/rpmessner/mounter.git
-[submodule "vendor/packages/bootstrap"]
-	path = vendor/packages/bootstrap
-	url = https://github.com/twitter/bootstrap.git

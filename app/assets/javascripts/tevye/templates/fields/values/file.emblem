@@ -1,0 +1,3 @@
+label = view.customField.label
+img src=view.srcUrl
+Tevye.FileDrop valueBinding=view.value

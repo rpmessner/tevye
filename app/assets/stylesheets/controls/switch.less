@@ -1,0 +1,52 @@
+.switch {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  .border-radius(50px);
+  .box-shadow(~"inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2)");
+}
+
+.switch:after {
+  content: 'OFF';
+  font: 12px/26px Arial, sans-serif;
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255,255,255,.35);
+}
+
+.switch:before {
+  content: 'ON';
+  font: 12px/26px Arial, sans-serif;
+  color: #00bf00;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255,255,255,.35);
+}
+
+.switch label {
+  display: block;
+  width: 34px;
+  height: 20px;
+
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+
+  .border-radius(50px);
+  .transition(all .4s ease);
+  .box-shadow(0px 2px 5px 0px rgba(0,0,0,0.3));
+  #gradient > .vertical-three-colors(#fcfff4, #dfe5d7, 40%, #b3bead);
+}
+.switch input[type=checkbox] { opacity: 0; }
+.switch input[type=checkbox]:checked + label {
+  left: 43px;
+}

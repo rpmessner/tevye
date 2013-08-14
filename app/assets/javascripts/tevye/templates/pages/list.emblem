@@ -1,0 +1,9 @@
+partial#new-page create_button
+Tevye.PagesTreeView contentBinding=rootPages
+  .content
+    if view.hasChildren
+      i click="openList target=view" class=view.iconClass
+    = linkTo "page" view.content.site view.content class="page"
+      = view.content.title
+  div class=view.childrenClass
+    Tevye.PagesTreeChildrenView contentBinding=view.childPages

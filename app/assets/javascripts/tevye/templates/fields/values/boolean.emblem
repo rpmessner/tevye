@@ -1,0 +1,2 @@
+label = view.customField.label
+Tevye.SwitchView valueBinding=view.value contentBinding=view.content

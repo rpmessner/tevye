@@ -1,6 +1,6 @@
 class Tevye::DashboardsController < Tevye::BaseController
   respond_to :html
-  
+
   def show
     sites         = Locomotive::Site.all
     content_types = Locomotive::ContentType.all

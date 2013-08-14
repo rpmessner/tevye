@@ -1,0 +1,2 @@
+label = view.customField.label
+Tevye.TextField valueBinding=view.value nameBinding=view.customField.slug

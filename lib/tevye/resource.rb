@@ -1,4 +1,3 @@
-class Tevye::ResourceError < Exception; end
 module Tevye::Resource
   def resources_name(name)
     @__resources_name__ = name
@@ -24,7 +23,6 @@ module Tevye::Resource
       end
       
       def resources_name
-        raise Tevye::ResourceError.new("no resource specified") if resource_class_var.nil?
         resource_class_var.to_s
       end
       

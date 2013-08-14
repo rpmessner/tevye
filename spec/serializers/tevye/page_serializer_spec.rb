@@ -52,10 +52,11 @@ describe Tevye::PageSerializer do
         parent_id: nil,
         child_ids: [],
         depth: 0,
+        fullpath: page.fullpath,
         id: page.id,
-        slug: { "en" => 'index' },
-        title: { "en" => 'Test Page' },
-        raw_template: { "en" => raw_template }
+        slug_translations: { "en" => 'index' },
+        title_translations: { "en" => 'Test Page' },
+        raw_template_translations: { "en" => raw_template }
       }
     }
   end
@@ -71,10 +72,11 @@ describe Tevye::PageSerializer do
         site_id: site.id,
         depth: 1,
         content_type_id: content_type.id,
+        fullpath: templatized.fullpath,
         child_ids: [],
-        slug: { "en" => 'content_type_template' },
-        title: { "en" => 'Templatized Page' },
-        raw_template: { "en" => templatized_template }
+        slug_translations: { "en" => 'content_type_template' },
+        title_translations: { "en" => 'Templatized Page' },
+        raw_template_translations: { "en" => templatized_template }
       }
     }
   end

@@ -10,23 +10,24 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'compass-rails'
-gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
-                              git: 'git://github.com/anjlab/bootstrap-rails.git',
-                              branch: '3.0.0'
+gem 'susy'
+gem 'less-rails-bootstrap', git: 'https://github.com/metaskills/less-rails-bootstrap.git',
+                            branch: '3.0.0-wip'
+gem 'therubyracer'
 gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc5'
 gem 'handlebars-source', '1.0.0.rc4'
 gem 'emblem-source'
+gem 'emblem-rails'
 gem 'slim-rails'
 gem 'active_model_serializers'
 
 group :development, :test do
-  gem 'susy'
   gem 'locomotivecms_mounter', path: 'vendor/gems/mounter'
   gem 'locomotive_cms', path: 'vendor/gems/engine'
   gem 'zeus'
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem "capybara-firebug"
   gem 'rspec-rails'
   gem 'rspec-cells'
   gem 'mocha', '~> 0.13.0', require: false
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'qunit-rails'
   gem 'unicorn'
+  gem "selenium-webdriver"
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-stack_explorer'

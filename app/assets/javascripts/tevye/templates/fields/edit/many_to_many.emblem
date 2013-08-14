@@ -1,0 +1,2 @@
+Tevye.Select name="target_type_id" contentBinding=view.typeSelectOptions optionValuePath=content.value optionLabelPath=content.label valueBinding=view.content.target_type_id
+Tevye.Select name="inverse_of" contentBinding=view.inverseSelectOptions optionValuePath=content.value optionLabelPath=content.label valueBinding=view.content.inverse_of

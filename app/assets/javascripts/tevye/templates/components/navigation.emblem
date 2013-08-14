@@ -1,0 +1,16 @@
+.navbar.navbar-inverse /.navbar-fixed-top
+  .container
+    a.navbar-brand href="#/" Locomotive: Tevye
+    .nav-collapse.open
+      ul.nav.navbar-nav
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            if controllers.site.hasContent
+              = controllers.site.content.name
+            else
+              | Sites
+            b.caret
+          ul.dropdown-menu
+            each site in content
+              li: linkTo "site" site class="site-link"
+                = site.name

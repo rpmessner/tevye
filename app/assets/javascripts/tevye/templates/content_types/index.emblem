@@ -1,0 +1,10 @@
+table.content-types
+  tr
+    th Title
+    th Link
+  each type in content
+    tr
+      td = type.title 
+      td = linkTo 'contentType' type.site type 
+        = type.slug
+

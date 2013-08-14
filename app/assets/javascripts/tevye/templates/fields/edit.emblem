@@ -1,0 +1,7 @@
+label Label
+Tevye.TextField name="label" valueBinding=view.content.label
+unless view.content.isLabel
+  button.destroy.btn.btn-danger click="removeCustomField view.content"
+    i.glyphicon.glyphicon-remove
+label Required
+Tevye.RequiredSwitch valueBinding=view.content.required

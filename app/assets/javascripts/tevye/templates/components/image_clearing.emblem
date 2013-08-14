@@ -1,0 +1,5 @@
+/ each image in view.content
+/   li.hide
+/     a.th{bindAttr href=image.url}
+/       img{bindAttr src=image.url}
+

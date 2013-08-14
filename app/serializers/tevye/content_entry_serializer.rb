@@ -13,16 +13,15 @@ class Tevye::ContentEntrySerializer < ActiveModel::Serializer
   def attributes
     dynamic_attributes = {}.tap do |attrs|
       custom_fields.each do |field|
-        name   = field.name
-        suffix = 
+        name, suffix = 
           case field.type
-          when /belongs_to/ then "_id"
-          when /has_many|many_to_many/ then "_ids"
-          else ""
+          when /belongs_to/ then [field.name.singularize, "_id"]
+          when /has_many|many_to_many/ then [field.name.singularize, "_ids"]
+          else [field.name, ""]
           end
-        value = @object.send("#{name}#{suffix}")
-        attrs["#{name}#{suffix}".to_sym] = 
-          value.kind_of?(CarrierWave::Uploader::Base) ? value.url : value
+        value  = @object.send("#{name}#{suffix}")
+        value  = value.url if value.kind_of?(CarrierWave::Uploader::Base)
+        attrs["#{name}#{suffix}".to_sym] = value
       end
     end
     super.merge(dynamic_attributes)

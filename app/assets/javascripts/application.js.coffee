@@ -13,7 +13,15 @@
 #= require jquery
 #= require handlebars
 #= require ember
-#= require ember-model/dist/ember-model
+#= require codemirror
+#= require codemirror/mode/css/css
+#= require codemirror/mode/sass/sass
+#= require codemirror/mode/javascript/javascript
+#= require codemirror/mode/coffeescript/coffeescript
+#= require codemirror/mode/xml/xml
+#= require codemirror/mode/htmlmixed/htmlmixed
+#= require codemirror/mode/htmlembedded/htmlembedded
+# require ember-model/dist/ember-model
+#= require twitter/bootstrap/dropdown
 #= require_self
 #= require tevye
-window.Tevye = Ember.Application.create()
